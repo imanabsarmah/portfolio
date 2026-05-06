@@ -1,29 +1,13 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState } from "react";
+
 export default function Portfolio() {
-  const projects = [
-    {
-      title: "School Administration Systems",
-      description:
-        "Designed digital workflows, notices, examination systems, sports schedules, and institutional communication systems for a residential school environment.",
-    },
-    {
-      title: "AI Photo Editing & Restoration",
-      description:
-        "Created cinematic edits, passport photo conversions, image remastering, background cleanup, and AI-enhanced photo restoration services.",
-    },
-    {
-      title: "School Branding & Media Design",
-      description:
-        "Developed banners, posters, certificates, calendars, circulars, and event branding materials for educational institutions.",
-    },
-    {
-      title: "Web Apps & Digital Tools",
-      description:
-        "Built lightweight web applications, forms, automation systems, and interactive educational tools.",
-    },
-  ];
+  const [darkMode, setDarkMode] = useState(false);
 
   const skills = [
-    "School Administration",
+    "School/Office Administration",
     "Document Design",
     "AI Image Editing",
     "Video Editing",
@@ -31,156 +15,164 @@ export default function Portfolio() {
     "Web Research",
     "Technical Assistance",
     "Software Troubleshooting",
-    "Google Forms & Automation",
-    "HTML/CSS",
     "React",
-    "Event Management",
     "Communication Design",
-    "Educational Workflow Systems",
+  ];
+
+  const projects = [
+    {
+      title: "AI Media Editing",
+      description:
+        "Professional image enhancement, restoration, cinematic editing, and AI-based media services.",
+    },
+    {
+      title: "Educational Systems",
+      description:
+        "School notices, examination systems, schedules, and digital workflow solutions.",
+    },
+    {
+      title: "Technical Assistance",
+      description:
+        "Software troubleshooting, IT support, setup assistance, and digital solutions.",
+    },
+    {
+      title: "Web & Design",
+      description:
+        "Portfolio websites, posters, resumes, branding materials, and creative digital design.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-white text-black px-6 py-10 md:px-16">
-      <div className="max-w-6xl mx-auto">
-        <section className="mb-20">
-          <div className="inline-block border border-black rounded-full px-4 py-1 text-sm mb-6">
-            Guwahati, Assam
-          </div>
+    <div className={darkMode ? "dark" : ""}>
+      <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-500 px-6 py-10 md:px-16">
+        {/* WhatsApp Button */}
+        <a
+          href="https://wa.me/918723088121"
+          target="_blank"
+          className="fixed bottom-6 right-6 bg-green-500 text-white px-4 py-3 rounded-full shadow-xl hover:scale-110 transition z-50"
+        >
+          WhatsApp
+        </a>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            Manabjyoti Sarmah
-          </h1>
+        <div className="max-w-6xl mx-auto">
+          {/* HERO SECTION */}
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-20"
+          >
+            <div className="flex items-center justify-between mb-8">
+              <div className="border border-black dark:border-white rounded-full px-4 py-1 text-sm">
+                Guwahati, Assam
+              </div>
 
-          <p className="text-xl md:text-2xl max-w-3xl leading-relaxed text-neutral-700 mb-8">
-            Examination In-Charge, IT & Communication Coordinator, designer, and
-            digital solutions creator focused on education systems, branding,
-            automation, and AI-powered creative services.
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="https://github.com"
-              className="px-6 py-3 rounded-2xl border border-black hover:bg-black hover:text-white transition"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="mailto:yourmail@example.com"
-              className="px-6 py-3 rounded-2xl bg-black text-white hover:opacity-80 transition"
-            >
-              Contact Me
-            </a>
-          </div>
-        </section>
-
-        <section className="mb-20">
-          <h2 className="text-3xl font-semibold mb-8">About</h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="border rounded-3xl p-8 shadow-sm">
-              <p className="text-lg leading-relaxed text-neutral-700">
-                I work at Kaziranga English Academy as the Examination In-Charge
-                while also managing IT systems and institutional communication.
-                My work combines administration, technology, design, and digital
-                workflow management.
-              </p>
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="border rounded-full px-4 py-2"
+              >
+                {darkMode ? "Light" : "Dark"}
+              </button>
             </div>
 
-            <div className="border rounded-3xl p-8 shadow-sm">
-              <p className="text-lg leading-relaxed text-neutral-700">
-                I create modern digital solutions for schools, educational
-                institutions, and small organizations — from notices and event
-                systems to branding, automation, and AI-enhanced media.
-              </p>
+            <img
+              src="/profile.jpg"
+              alt="Profile"
+              className="w-32 h-32 rounded-full object-cover border mb-8"
+            />
+
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+              Manabjyoti Sarmah
+            </h1>
+
+            <p className="text-xl md:text-2xl max-w-3xl text-neutral-600 dark:text-neutral-300 leading-relaxed mb-8">
+              Examination In-Charge, IT & Communication Coordinator, designer,
+              editor, and digital solutions creator.
+            </p>
+
+            <div className="flex flex-wrap gap-4 mb-8">
+              <a
+                href="mailto:imanabsarmah@gmail.com"
+                className="px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-2xl"
+              >
+                Contact Me
+              </a>
+
+              <a
+                href="/resume.pdf"
+                download
+                className="px-6 py-3 border rounded-2xl"
+              >
+                Download Resume
+              </a>
             </div>
-          </div>
-        </section>
 
-        <section className="mb-20">
-          <h2 className="text-3xl font-semibold mb-8">Skills</h2>
+            {/* SOCIAL LINKS */}
 
-          <div className="flex flex-wrap gap-4">
-            {skills.map((skill) => (
-              <div
-                key={skill}
-                className="px-5 py-3 border rounded-2xl text-sm hover:bg-black hover:text-white transition"
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://github.com/imanabsarmah"
+                target="_blank"
+                className="border rounded-2xl px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
               >
-                {skill}
-              </div>
-            ))}
-          </div>
-        </section>
+                GitHub
+              </a>
 
-        <section className="mb-20">
-          <h2 className="text-3xl font-semibold mb-8">Projects & Services</h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="border rounded-3xl p-8 shadow-sm hover:shadow-lg transition"
+              <a
+                href="https://instagram.com/imanabsarmah"
+                target="_blank"
+                className="border rounded-2xl px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
               >
-                <h3 className="text-2xl font-semibold mb-4">{project.title}</h3>
+                Instagram
+              </a>
 
-                <p className="text-neutral-700 leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mb-20">
-          <h2 className="text-3xl font-semibold mb-8">Services</h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              "School Document & Notice Design",
-              "Professional Resume Design",
-              "Video Editing & Reels Creation",
-              "Web Research & Data Collection",
-              "Technical Assistance & IT Support",
-              "AI Photo Enhancement",
-              "Poster & Banner Design",
-              "School Automation Systems",
-              "Website & Web App Creation",
-              "Digital Event Management",
-            ].map((service) => (
-              <div
-                key={service}
-                className="rounded-3xl border p-6 text-lg hover:bg-black hover:text-white transition"
+              <a
+                href="https://linkedin.com/in/imanabsarmah"
+                target="_blank"
+                className="border rounded-2xl px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
               >
-                {service}
-              </div>
-            ))}
-          </div>
-        </section>
+                LinkedIn
+              </a>
+            </div>
+          </motion.section>
 
-        <section className="border rounded-3xl p-10 bg-black text-white">
-          <h2 className="text-3xl font-semibold mb-4">Let’s Work Together</h2>
+          {/* SKILLS */}
 
-          <p className="text-lg text-neutral-300 mb-6 max-w-2xl">
-            Available for educational digital services, creative design,
-            automation systems, and freelance projects.
-          </p>
+          <section className="mb-20">
+            <h2 className="text-3xl font-semibold mb-8">Skills</h2>
 
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="mailto:imanabjyoti@gmail.com"
-              className="px-6 py-3 bg-white text-black rounded-2xl"
-            >
-              Email
-            </a>
+            <div className="flex flex-wrap gap-4">
+              {skills.map((skill) => (
+                <div key={skill} className="px-5 py-3 border rounded-2xl">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </section>
 
-            <a
-              href="https://github.com/imanabsarmah"
-              className="px-6 py-3 border border-white rounded-2xl"
-            >
-              GitHub Profile
-            </a>
-          </div>
-        </section>
+          {/* PROJECTS */}
+
+          <section className="mb-20">
+            <h2 className="text-3xl font-semibold mb-8">Projects & Services</h2>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {projects.map((project) => (
+                <div
+                  key={project.title}
+                  className="border rounded-3xl p-8 hover:shadow-xl transition"
+                >
+                  <h3 className="text-2xl font-semibold mb-4">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-neutral-600 dark:text-neutral-300">
+                    {project.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
